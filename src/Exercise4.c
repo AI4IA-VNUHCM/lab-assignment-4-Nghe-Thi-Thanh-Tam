@@ -49,22 +49,41 @@ void printArray(int a[SIZE][SIZE], int m, int n)
 
 void insertRow(int arr[], int a[SIZE][SIZE],int rowIndex, int m, int n){
 	//Your codes here
-	
+	int i, j;
+	for (i=m-1; i>= rowIndex; i--)
+		for (j=0; j<=n-1; j++)
+			a[i+1][j] = a[i][j];
+	for (i=0; i<=n-1; i++)
+		a[rowIndex][i] = arr[i];
+	printArray(a, m+1, n);
 }
 
 void removeRow(int a[SIZE][SIZE], int rowIndex, int m, int n){
 	//Your codes here
-	
+	for (int i=rowIndex+1; i<=m-1; i++)
+		for (int j=0; j<=n-1; j++)
+			a[i-1][j] = a[i][j];
+	printArray(a, m-1, n);
 }
 
 void insertCol(int arr[], int a[SIZE][SIZE],int colIndex, int m, int n){
 	//Your codes here
-	
+	int i, j;
+	for (i=n-1; i>= colIndex; i--)
+		for (j=0; j<=m-1; j++)
+			a[j][i+1] = a[j][i];
+	for (i=0; i<=m-1; i++)
+		a[i][colIndex] = arr[i];
+	printArray(a, m, n+1);
 }
 
 void removeCol(int a[SIZE][SIZE], int colIndex, int m, int n){
 	//Your codes here
-	
+	for (int i=colIndex+1; i<=n-1; i++)
+		for (int j=0; j<=m-1; j++)
+			a[j][i-1] = a[j][i];
+	printArray(a, m, n-1);
+
 }
 
 int main(int argc, char *argv[]) {
