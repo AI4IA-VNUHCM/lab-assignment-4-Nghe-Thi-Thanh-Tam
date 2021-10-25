@@ -61,10 +61,10 @@ void Ex3(int in_arr[], int n){
 			}
 	for (i=n-1; i>=1; i--)
 		for (j=n-1-i; j<=n-1; j++)
-			if (a[i][n-1-i] < a[i-1][j+1]) {
+			if (a[i][n-1-i] < a[n-j-2][j+1]) {
 				temp = a[i][n-1-i];
-				a[i][n-1-i] = a[i-1][j+1];
-				a[i-1][j+1] = temp;
+				a[i][n-1-i] = a[n-j-2][j+1];
+				a[n-j-2][j+1] = temp;
 			}
 	printArray(a,n,n);
 }
